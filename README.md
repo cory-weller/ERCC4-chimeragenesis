@@ -1,7 +1,7 @@
 # README
 
 ## Initialize codon usage table
-Will be used for any saturated mutagenesis or deletion scan. Yeast codon usage table retrieved from [kazusa.or.jp](https://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi?species=4932&aa=1&style=N) and the body of the table was saved as  `codonTable.txt` which is parsed and processed by [`formatCodons.py`](bin/formatCodons.py) into [`codons.txt`](seqs/codons.txt):
+Will be used for any saturated mutagenesis or deletion scan. Yeast codon usage table retrieved from [kazusa.or.jp](https://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi?species=4932&aa=1&style=N) and the body of the table was saved as  `codonTable.txt` which is parsed and processed by [`formatCodons.py`](Xmera/bin/formatCodons.py) into [`codons.txt`](seqs/codons.txt):
 ```
 (
 cd seqs && \
