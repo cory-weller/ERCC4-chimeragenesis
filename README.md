@@ -15,7 +15,7 @@ Shuffling ercc4:
 ( cd seqs/ && Rscript ../Xmera/bin/shuffle.R ercc4.cds.fasta ercc4.cds.fasta )
 ```
 
-The script [`shuffle.R`](shuffle.R) generates five new `fasta` files with various % identity shared with [`ercc4.cds.fasta`](seqs/ercc4.cds.fasta), but we only need [`ercc4.cds.min.fasta`](seqs/ercc4.cds.min.fasta).
+The script [`shuffle.R`](Xmera/bin/shuffle.R) generates five new `fasta` files with various % identity shared with [`ercc4.cds.fasta`](seqs/ercc4.cds.fasta), but we only need [`ercc4.cds.min.fasta`](seqs/ercc4.cds.min.fasta).
 ```bash
 rm seqs/ercc4.cds.low.fasta
 rm seqs/ercc4.cds.medium.fasta
