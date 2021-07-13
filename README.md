@@ -31,3 +31,15 @@ python3 ../Xmera/bin/homopolymers.py ERCC4.cds.min.fasta ERCC4.cds.fasta > ERCC4
 ```
 Generating the final shuffled sequence, [`ERCC4.min_homology.fasta`](seqs/ERCC4.min_homology.fasta) to be ordered by gene synthesis.
 
+## Saturated mutagenesis of ERCC4
+```bash
+mkdir 01_ERCC4_mutagenesis
+python3 Xmera/bin/buildMutagenicRTs.py \
+    --first seqs/ERCC4.min_homology.fasta \
+    --second seqs/ERCC4.cds.fasta \
+    --length 163 \
+    --codons seqs/codons.txt \
+    --upstream seqs/ERCC4.upstream.fasta \
+    --downstream seqs/ERCC4.downstream.fasta \
+    > 01_ERCC4_mutagenesis/ERCC4_mutagenesis.fasta
+```
