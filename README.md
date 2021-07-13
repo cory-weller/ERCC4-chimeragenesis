@@ -9,25 +9,25 @@ if [ ! -f "codons.txt" ]; then python3 ../Xmera/bin/formatCodons.py > "codons.tx
 )
 ```
 
-## Generate codon-shuffled ercc4
-Shuffling ercc4:
+## Generate codon-shuffled ERCC4
+Shuffling ERCC4:
 ```bash
-( cd seqs/ && Rscript ../Xmera/bin/shuffle.R ercc4.cds.fasta ercc4.cds.fasta )
+( cd seqs/ && Rscript ../Xmera/bin/shuffle.R ERCC4.cds.fasta ERCC4.cds.fasta )
 ```
 
-The script [`shuffle.R`](https://github.com/cory-weller/Xmera/blob/b33db0d/bin/shuffle.R) generates five new `fasta` files with various % identity shared with [`ercc4.cds.fasta`](seqs/ercc4.cds.fasta), but we only need [`ercc4.cds.min.fasta`](seqs/ercc4.cds.min.fasta).
+The script [`shuffle.R`](https://github.com/cory-weller/Xmera/blob/b33db0d/bin/shuffle.R) generates five new `fasta` files with various % identity shared with [`ERCC4.cds.fasta`](seqs/ERCC4.cds.fasta), but we only need [`ERCC4.cds.min.fasta`](seqs/ERCC4.cds.min.fasta).
 ```bash
-rm seqs/ercc4.cds.low.fasta
-rm seqs/ercc4.cds.medium.fasta
-rm seqs/ercc4.cds.high.fasta
-rm seqs/ercc4.cds.max.fasta
+rm seqs/ERCC4.cds.low.fasta
+rm seqs/ERCC4.cds.medium.fasta
+rm seqs/ERCC4.cds.high.fasta
+rm seqs/ERCC4.cds.max.fasta
 ```
 
 The [`homopolymers.py`](https://github.com/cory-weller/Xmera/blob/b33db0d/bin/homopolymers.py) script removes homopolymers. See `class fasta` within the script for exact replacements.
 ```bash
 ( cd seqs/ && \
-python3 ../Xmera/bin/homopolymers.py ercc4.cds.min.fasta ercc4.cds.fasta > ercc4.min_homology.fasta
+python3 ../Xmera/bin/homopolymers.py ERCC4.cds.min.fasta ERCC4.cds.fasta > ERCC4.min_homology.fasta
 )
 ```
-Generating the final shuffled sequence, [`ercc4.min_homology.fasta`](seqs/ercc4.min_homology.fasta) to be ordered by gene synthesis.
+Generating the final shuffled sequence, [`ERCC4.min_homology.fasta`](seqs/ERCC4.min_homology.fasta) to be ordered by gene synthesis.
 
