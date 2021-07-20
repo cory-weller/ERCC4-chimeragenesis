@@ -43,3 +43,8 @@ python3 Xmera/bin/buildMutagenicRTs.py \
     --downstream seqs/ERCC4.downstream.fasta \
     > 01_ERCC4_mutagenesis/ERCC4_mutagenesis.fasta
 ```
+
+## HGVS parsing for specific variants
+```bash
+python3 Xmera/bin/parseHGVS.py indels.txt > RT.test
+```
