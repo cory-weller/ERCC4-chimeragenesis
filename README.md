@@ -44,7 +44,7 @@ python3 Xmera/bin/buildMutagenicRTs.py \
     > 01_ERCC4_mutagenesis/ERCC4_mutagenesis.fasta
 ```
 
-## HGVS parsing for specific variants
+## HGVS parsing for generating known ERCC4 variants
 ```bash
-python3 Xmera/bin/parseHGVS.py indels.txt > RT.test
+python3 Xmera/bin/parseHGVS.py 02_known_variants/indels.txt > 02_known_variants/ERCC4.knownVariants.fasta
 ```
