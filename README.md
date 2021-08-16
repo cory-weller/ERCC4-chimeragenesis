@@ -48,3 +48,10 @@ python3 Xmera/bin/buildMutagenicRTs.py \
 ```bash
 python3 Xmera/bin/parseHGVS.py 02_known_variants/indels.txt > 02_known_variants/ERCC4.knownVariants.fasta
 ```
+
+## Add primers
+```bash
+python3 Xmera/bin/addPrimers.py 01_ERCC4_mutagenesis/ERCC4_mutagenesis.fasta 301 | grep "SNP=True" > ERCC4.RT.txt
+python3 Xmera/bin/addPrimers.py 01_ERCC4_mutagenesis/ERCC4_mutagenesis.fasta 302 | grep "SNP=False" >> ERCC4.RT.txt
+python3 Xmera/bin/addPrimers.py 02_known_variants/ERCC4.knownVariants.fasta 303  >> ERCC4.RT.txt
+```
