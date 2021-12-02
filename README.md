@@ -55,3 +55,26 @@ python3 Xmera/bin/addPrimers.py 01_ERCC4_mutagenesis/ERCC4_mutagenesis.fasta 301
 python3 Xmera/bin/addPrimers.py 01_ERCC4_mutagenesis/ERCC4_mutagenesis.fasta 302 | grep "SNP=False" >> ERCC4.RT.txt
 python3 Xmera/bin/addPrimers.py 02_known_variants/ERCC4.knownVariants.fasta 303  >> ERCC4.RT.txt
 ```
+
+## Assemble paired end reads
+```bash
+pear -f contOligoLib4_S4_L001_R1_001.fastq.gz \
+    -r contOligoLib4_S4_L001_R2_001.fastq.gz \
+    -o contOligoLib4
+
+pear -f indelOligoLib3_S3_L001_R1_001.fastq.gz \
+    -r indelOligoLib3_S3_L001_R2_001.fastq.gz \
+    -o indelOligoLib3
+
+pear -f notSNPsOligoLib2_S2_L001_R1_001.fastq.gz \
+    -r notSNPsOligoLib2_S2_L001_R2_001.fastq.gz \
+    -o notSNPsOligoLib2
+
+pear -f SNPsOligoLib1_S1_L001_R1_001.fastq.gz \
+    -r SNPsOligoLib1_S1_L001_R2_001.fastq.gz \
+    -o SNPsOligoLib1
+
+pear -f Undetermined_S0_L001_R1_001.fastq.gz \
+    -r Undetermined_S0_L001_R2_001.fastq.gz \
+    -o Undetermined_S0
+```
