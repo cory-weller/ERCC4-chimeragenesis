@@ -1,2 +1,3 @@
 **.fastq.gz
 **.fastq
+/03_initial_miseq_analysis/**/*.tab
