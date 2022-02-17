@@ -1,0 +1,4 @@
+primer,library,sublibraryL,sublibraryR,LbarcodeLength,RbarcodeLength,LbarcodeEnd,RbarcodeStart,treatment
+301,SNP,CGGAGGCAGGAGGGT,GGACTAGCGGCCGTC,12,12,GGTT$,^AACC,all
+302,not-SNP,GCGGGTCACTTGGGT,GACAGTGGACCGGGC,12,12,GGTT$,^AACC,all
+303,indel,CCGGGACCAGGCTCT,GTCCCGCCGATCCTG,12,12,GGTT$,^AACC,all
