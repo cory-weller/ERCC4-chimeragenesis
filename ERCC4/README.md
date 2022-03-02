@@ -1,5 +1,11 @@
 # README
 
+## Get Data
+
+```bash
+wget -O 'Xmera/src/Xmera.sif' 'https://onedrive.live.com/download?cid=77DD71E598E5B51B&resid=77DD71E598E5B51B%2119128&authkey=ANaVkMo47BvD0G8'
+```
+
 ## Initialize codon usage table
 Will be used for any saturated mutagenesis or deletion scan. Yeast codon usage table retrieved from [kazusa.or.jp](https://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi?species=4932&aa=1&style=N) and the body of the table was saved as  `codonTable.txt` which is parsed and processed by [`formatCodons.py`](https://github.com/cory-weller/Xmera/blob/b33db0d/bin/formatCodons.py) into [`codons.txt`](seqs/codons.txt):
 ```
