@@ -1,1 +1,1 @@
-# NER-SMC: Nucleotide Excision Repair Saturated Mutagenesis by Chimeragenesis
+# Saturated mutagenesis of NER proteins via chimeragenesis
