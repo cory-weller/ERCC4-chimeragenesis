@@ -1,0 +1,5 @@
+Accession	codonRef	codonAlt	aaRef	aaAlt	HVGS	codonNo	Phenotype	Reference
+CM070924	CAG	TAG	Gln	*	c.472C>T	158	Cerebro-oculo-facio-skeletal syndrome	"Jaspers (2007) Am J Hum Genet 80, 457"
+CM1111640	AAG	TAG	Lys	*	c.676A>T	226	Xeroderma pigmentosum	"Gregg (2011) DNA Repair (Amst) 10, 781"
+CM070925	TTC	TTG	Phe	Leu	c.693C>G	231	Cerebro-oculo-facio-skeletal syndrome	"Jaspers (2007) Am J Hum Genet 80, 457"
+CM185604	TGG	TAG	Trp	*	c.875G>A	292	"Breast cancer, early-onset ?"	"Torrezan (2018) Front Genet 9, 161"
