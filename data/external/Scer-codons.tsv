@@ -1,4 +1,4 @@
-triplet amino_acid  fraction    frequency_per_thousand  number
+triplet	amino_acid	fraction	frequency_per_thousand	number
 UUU	F	0.59	26.1	170666
 UCU	S	0.26	23.5	153557
 UAU	Y	0.56	18.8	122728
