@@ -68,8 +68,7 @@ singularity exec --bind ${PWD} ../Xmera/src/Xmera.sif \
 
 ### XPA
 ```bash
-mkdir 01_ERCC4_mutagenesis
-singularity run --bind ${PWD} Xmera/src/Xmera.sif2 \
+singularity run --bind ${PWD} Xmera/src/Xmera.sif \
     Xmera/src/buildMutagenicRTs.py \
     --first XPA/XPA-shuffled.fasta \
     --second XPA/XPA-cds.fasta \
@@ -82,8 +81,7 @@ singularity run --bind ${PWD} Xmera/src/Xmera.sif2 \
 
 ### ERCC1
 ```bash
-mkdir 01_ERCC4_mutagenesis
-singularity run --bind ${PWD} Xmera/src/Xmera.sif2 \
+singularity run --bind ${PWD} Xmera/src/Xmera.sif \
     Xmera/src/buildMutagenicRTs.py \
     --first ERCC1/ERCC1-shuffled.fasta \
     --second ERCC1/ERCC1-cds.fasta \
