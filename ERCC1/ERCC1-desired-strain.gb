@@ -9,7 +9,7 @@ FEATURES             Location/Qualifiers
                      /label="ERCC1'"
      misc_feature    1973..2021
                      /label="Tsynth8"
-     misc_feature    1973..2369
+     misc_feature    2022..2369
                      /label="Kl-URA3-pro"
      misc_feature    complement(2154..2156)
                      /label="PAM"
