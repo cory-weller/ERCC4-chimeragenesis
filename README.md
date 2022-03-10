@@ -64,7 +64,7 @@ singularity exec --bind ${PWD} ../Xmera/src/Xmera.sif \
 
 
 
-## Generate Repair Templates
+## Generate Repair Templates for all-codons replacement
 
 ### XPA
 ```bash
@@ -90,4 +90,32 @@ singularity run --bind ${PWD} Xmera/src/Xmera.sif \
     --upstream ERCC1/ERCC1-upstream.fasta \
     --downstream ERCC1/ERCC1-downstream.fasta \
     > ERCC1/ERCC1-DMS.fasta
+```
+
+## Generate Repair Templates for known substitutions
+
+Need list of HGVS variants, which are parsed with [`parseHGVS.py`](Xmera/src/parseHGVS.py)
+
+## HGVS parsing for generating known ERCC4 variants
+```bash
+
+singularity run --bind ${PWD} Xmera/src/Xmera.sif \
+    Xmera/src/parseHGVS.py \
+    ERCC1 \
+    shuffled \
+    cds \
+    indels \
+    data/external/Scer-codons.tsv \
+    190
+
+```
+
+### XPA
+```bash
+
+```
+
+### ERCC1
+```bash
+
 ```
