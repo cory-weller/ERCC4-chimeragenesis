@@ -1,5 +1,7 @@
 # Saturated mutagenesis of NER proteins via chimeragenesis
 
+Note: This workflow utilizes a singularity image file containing various `R` and `python` scripts. The pre-built image file can be downloaded by direct link below. The code base for the image file is located [here](https://github.com/cory-weller/Xmera).
+
 ## Install Singularity
 Instructions included at this [`gist`](https://gist.github.com/cory-weller/ae515627436596f7e82d96864df134aa)
 ```bash
