@@ -11,111 +11,104 @@ git clone --recurse-submodules https://github.com/cory-weller/NER-mutagenesis.gi
 ```bash
 cid="77DD71E598E5B51B"
 key="ANaVkMo47BvD0G8"
-wget -O 'Xmera/src/Xmera.sif' "https://onedrive.live.com/download?cid=${cid}&resid=${cid}%2119128&authkey=${key}"
-# sha512sum 939d14a48c5efe2a0edd699c5d707f3e16be40979ee41771ef8af30534dd597a58a7df7e9ac6a4fb2abb26a5ba92c15d8fe614de184e7ece94168d0ca7020e39
+wget -O 'Xmera.sif' "https://onedrive.live.com/download?cid=${cid}&resid=${cid}%2119128&authkey=${key}"
+# sha512sum 7fc67fb906fa4cfe1d57ed1bc1d3fd7061de1e6641c2943ffae2063ac7c9c0404cce609b70ada013394a2664300d716921797a9a182a5839c57567f52c9b301a
 ```
 
 
 
 ## Generate codon-shuffled sequences
-### XPA
-```
+Below code block generates [`XPA-shuffled.fasta`](XPA/XPA-shuffled.fasta)
+```bash
 (
 # Generate Sequence
 cd XPA/ && \
-singularity exec --bind ${PWD} ../Xmera/src/R.sif \
-    ../Xmera/src/shuffle.R \
+../Xmera.sif shuffle.R \
     XPA-cds.fasta \
     XPA-cds.fasta \
     ../data/external/Scer-codons.tsv && \
-    fold -w 60 XPA-cds.min.fasta > XPA-min-homology.fasta && \
-    rm XPA-cds.*.fasta
+    fold -w 60 XPA-cds.min.fasta \
+    > XPA-min-homology.fasta && rm XPA-cds.*.fasta
 
 # Remove homopolymers
-singularity exec --bind ${PWD} ../Xmera/src/Xmera.sif \
-    python3 ../Xmera/src/homopolymers.py \
+../Xmera.sif homopolymers.py \
     XPA-min-homology.fasta \
-    XPA-cds.fasta > XPA-shuffled.fasta && \
-    rm XPA-min-homology.fasta
+    XPA-cds.fasta \
+    > XPA-shuffled.fasta && rm XPA-min-homology.fasta
 )
 ```
 
-### ERCC1
-```
+Below code block generates [`ERCC1-shuffled.fasta`](ERCC1/ERCC1-shuffled.fasta)
+```bash
 (
 # Generate Sequence
 cd ERCC1/ && \
-singularity exec --bind ${PWD} ../Xmera/src/R.sif \
-    ../Xmera/src/shuffle.R \
+../Xmera.sif shuffle.R \
     ERCC1-cds.fasta \
     ERCC1-cds.fasta \
     ../data/external/Scer-codons.tsv && \
-    fold -w 60 ERCC1-cds.min.fasta > ERCC1-min-homology.fasta && \
-    rm ERCC1-cds.*.fasta
+    fold -w 60 ERCC1-cds.min.fasta \
+    > ERCC1-min-homology.fasta && rm ERCC1-cds.*.fasta
 
 # Remove homopolymers
-singularity exec --bind ${PWD} ../Xmera/src/Xmera.sif \
-    python3 ../Xmera/src/homopolymers.py \
+../Xmera.sif homopolymers.py \
     ERCC1-min-homology.fasta \
-    ERCC1-cds.fasta > ERCC1-shuffled.fasta && \
-    rm ERCC1-min-homology.fasta
+    ERCC1-cds.fasta \
+    > ERCC1-shuffled.fasta && rm ERCC1-min-homology.fasta
 )
 ```
 
 
 
-## Generate Repair Templates for all-codons replacement
+## Generate Repair Templates 
 
-### XPA
+Below code block generates [`XPA-DMS-RTs.fasta`](XPA/XPA-DMS-RTs.fasta)
+
 ```bash
-singularity run --bind ${PWD} Xmera/src/Xmera.sif \
-    Xmera/src/buildMutagenicRTs.py \
+./Xmera.sif buildMutagenicRTs.py \
     --first XPA/XPA-shuffled.fasta \
     --second XPA/XPA-cds.fasta \
     --length 189 \
     --codons data/external/Scer-codons.tsv \
     --upstream XPA/XPA-upstream.fasta \
     --downstream XPA/XPA-downstream.fasta \
-    > XPA/XPA-DMS.fasta
+    > XPA/XPA-DMS-RTs.fasta
 ```
 
-### ERCC1
+Below code block generates [`ERCC1-DMS-RTs.fasta`](ERCC1/ERCC1-DMS-RTs.fasta)
 ```bash
-singularity run --bind ${PWD} Xmera/src/Xmera.sif \
-    Xmera/src/buildMutagenicRTs.py \
+./Xmera.sif buildMutagenicRTs.py \
     --first ERCC1/ERCC1-shuffled.fasta \
     --second ERCC1/ERCC1-cds.fasta \
     --length 189 \
     --codons data/external/Scer-codons.tsv \
     --upstream ERCC1/ERCC1-upstream.fasta \
     --downstream ERCC1/ERCC1-downstream.fasta \
-    > ERCC1/ERCC1-DMS.fasta
+    > ERCC1/ERCC1-DMS-RTs.fasta
 ```
 
-## Generate Repair Templates for known substitutions
 
-Need list of HGVS variants, which are parsed with [`parseHGVS.py`](Xmera/src/parseHGVS.py)
-
-## HGVS parsing for generating known ERCC4 variants
+Below code block generates [`XPA-indel-RTs.fasta`](XPA/XPA-indel-RTs.fasta)
 ```bash
+./Xmera.sif parseHGVS.py \
+    XPA \
+    shuffled \
+    cds \
+    indels \
+    data/external/Scer-codons.tsv \
+    190 | fold -w 80 \
+    > XPA/XPA-indel-RTs.fasta
+```
 
-singularity run --bind ${PWD} Xmera/src/Xmera.sif \
-    Xmera/src/parseHGVS.py \
+
+Below code block generates [`ERCC1-indel-RTs.fasta`](ERCC1/ERCC1-indel-RTs.fasta)
+```bash
+./Xmera.sif parseHGVS.py \
     ERCC1 \
     shuffled \
     cds \
     indels \
     data/external/Scer-codons.tsv \
-    190
-
-```
-
-### XPA
-```bash
-
-```
-
-### ERCC1
-```bash
-
+    190 | fold -w 80 \
+    > ERCC1/ERCC1-indel-RTs.fasta
 ```
