@@ -15,9 +15,6 @@ wget -O 'Xmera.sif' "https://onedrive.live.com/download?cid=${cid}&resid=${cid}%
 # sha512sum 7fc67fb906fa4cfe1d57ed1bc1d3fd7061de1e6641c2943ffae2063ac7c9c0404cce609b70ada013394a2664300d716921797a9a182a5839c57567f52c9b301a
 ```
 
-git clone git@gist.github.com:ae515627436596f7e82d96864df134aa.git
-
-
 ## Generate codon-shuffled sequences
 Below code block generates [`XPA-shuffled.fasta`](XPA/XPA-shuffled.fasta)
 ```bash
