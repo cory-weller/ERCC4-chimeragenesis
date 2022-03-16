@@ -69,7 +69,7 @@ Below code block generates [`XPA-DMS-RTs.fasta`](XPA/XPA-DMS-RTs.fasta)
 ./Xmera.sif buildMutagenicRTs.py \
     --first XPA/XPA-shuffled.fasta \
     --second XPA/XPA-cds.fasta \
-    --length 189 \
+    --length 200 \
     --codons data/external/Scer-codons.tsv \
     --upstream XPA/XPA-upstream.fasta \
     --downstream XPA/XPA-downstream.fasta \
@@ -81,7 +81,7 @@ Below code block generates [`ERCC1-DMS-RTs.fasta`](ERCC1/ERCC1-DMS-RTs.fasta)
 ./Xmera.sif buildMutagenicRTs.py \
     --first ERCC1/ERCC1-shuffled.fasta \
     --second ERCC1/ERCC1-cds.fasta \
-    --length 189 \
+    --length 200 \
     --codons data/external/Scer-codons.tsv \
     --upstream ERCC1/ERCC1-upstream.fasta \
     --downstream ERCC1/ERCC1-downstream.fasta \
@@ -97,7 +97,7 @@ Below code block generates [`XPA-indel-RTs.fasta`](XPA/XPA-indel-RTs.fasta)
     cds \
     indels \
     data/external/Scer-codons.tsv \
-    190 | fold -w 80 \
+    200 | fold -w 80 \
     > XPA/XPA-indel-RTs.fasta
 ```
 
@@ -110,7 +110,7 @@ Below code block generates [`ERCC1-indel-RTs.fasta`](ERCC1/ERCC1-indel-RTs.fasta
     cds \
     indels \
     data/external/Scer-codons.tsv \
-    190 | fold -w 80 \
+    200 | fold -w 80 \
     > ERCC1/ERCC1-indel-RTs.fasta
 ```
 
@@ -119,7 +119,7 @@ Below code block generates frame shifts in XPA, saving as [`XPA-frameshift-RTs.f
 ./Xmera.sif Xmera/src/buildFrameShiftRTs.py \
     --first XPA/XPA-shuffled.fasta \
     --second XPA/XPA-cds.fasta \
-    --length 190 \
+    --length 200 \
     --upstream XPA/XPA-upstream.fasta \
     --downstream XPA/XPA-downstream.fasta \
     --frameshift -1 \
@@ -129,7 +129,7 @@ Below code block generates frame shifts in XPA, saving as [`XPA-frameshift-RTs.f
 ./Xmera.sif Xmera/src/buildFrameShiftRTs.py \
     --first XPA/XPA-shuffled.fasta \
     --second XPA/XPA-cds.fasta \
-    --length 190 \
+    --length 200 \
     --upstream XPA/XPA-upstream.fasta \
     --downstream XPA/XPA-downstream.fasta \
     --frameshift -2 \
@@ -139,7 +139,7 @@ Below code block generates frame shifts in XPA, saving as [`XPA-frameshift-RTs.f
 ./Xmera.sif Xmera/src/buildFrameShiftRTs.py \
     --first XPA/XPA-shuffled.fasta \
     --second XPA/XPA-cds.fasta \
-    --length 190 \
+    --length 200 \
     --upstream XPA/XPA-upstream.fasta \
     --downstream XPA/XPA-downstream.fasta \
     --frameshift -3 \
@@ -152,7 +152,7 @@ Below code block generates frame shifts in ERCC1, saving as [`ERCC1-frameshift-R
 ./Xmera.sif Xmera/src/buildFrameShiftRTs.py \
     --first ERCC1/ERCC1-shuffled.fasta \
     --second ERCC1/ERCC1-cds.fasta \
-    --length 190 \
+    --length 200 \
     --upstream ERCC1/ERCC1-upstream.fasta \
     --downstream ERCC1/ERCC1-downstream.fasta \
     --frameshift -1 \
@@ -162,7 +162,7 @@ Below code block generates frame shifts in ERCC1, saving as [`ERCC1-frameshift-R
 ./Xmera.sif Xmera/src/buildFrameShiftRTs.py \
     --first ERCC1/ERCC1-shuffled.fasta \
     --second ERCC1/ERCC1-cds.fasta \
-    --length 190 \
+    --length 200 \
     --upstream ERCC1/ERCC1-upstream.fasta \
     --downstream ERCC1/ERCC1-downstream.fasta \
     --frameshift -2 \
@@ -172,7 +172,7 @@ Below code block generates frame shifts in ERCC1, saving as [`ERCC1-frameshift-R
 ./Xmera.sif Xmera/src/buildFrameShiftRTs.py \
     --first ERCC1/ERCC1-shuffled.fasta \
     --second ERCC1/ERCC1-cds.fasta \
-    --length 190 \
+    --length 200 \
     --upstream ERCC1/ERCC1-upstream.fasta \
     --downstream ERCC1/ERCC1-downstream.fasta \
     --frameshift -3 \
