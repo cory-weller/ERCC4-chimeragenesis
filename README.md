@@ -179,3 +179,18 @@ Below code block generates frame shifts in ERCC1, saving as [`ERCC1-frameshift-R
     --prepend ERCC1 \
     --wrap >> ERCC1/ERCC1-frameshift-RTs.fasta
 ```
+
+## Combine into single fasta
+```bash
+./Xmera.sif Xmera/src/addPrimers.py XPA/XPA-indel-RTs.fasta 301 > NER-RTs.txt
+./Xmera.sif Xmera/src/addPrimers.py XPA/XPA-DMS-RTs.fasta 302 | grep "SNP=True" >> NER-RTs.txt 
+./Xmera.sif Xmera/src/addPrimers.py XPA/XPA-DMS-RTs.fasta 303 | grep "SNP=False" >> NER-RTs.txt
+./Xmera.sif Xmera/src/addPrimers.py XPA/XPA-frameshift-RTs.fasta 304 >> NER-RTs.txt
+./Xmera.sif Xmera/src/addPrimers.py ERCC1/ERCC1-DMS-RTs.fasta 305 | grep "SNP=True" >> NER-RTs.txt
+./Xmera.sif Xmera/src/addPrimers.py ERCC1/ERCC1-DMS-RTs.fasta 306 | grep "SNP=False" >> NER-RTs.txt
+./Xmera.sif Xmera/src/addPrimers.py ERCC1/ERCC1-frameshift-RTs.fasta 307 >> NER-RTs.txt
+./Xmera.sif Xmera/src/addPrimers.py ERCC1/ERCC1-indel-RTs.fasta 308 >> NER-RTs.txt
+
+wc -l NER-RTs.txt 
+# 14402
+```
