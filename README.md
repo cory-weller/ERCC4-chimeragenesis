@@ -113,3 +113,69 @@ Below code block generates [`ERCC1-indel-RTs.fasta`](ERCC1/ERCC1-indel-RTs.fasta
     190 | fold -w 80 \
     > ERCC1/ERCC1-indel-RTs.fasta
 ```
+
+Below code block generates frame shifts in XPA, saving as [`XPA-frameshift-RTs.fasta`](XPA/XPA-frameshift-RTs.fasta):
+```bash
+./Xmera.sif Xmera/src/buildFrameShiftRTs.py \
+    --first XPA/XPA-shuffled.fasta \
+    --second XPA/XPA-cds.fasta \
+    --length 190 \
+    --upstream XPA/XPA-upstream.fasta \
+    --downstream XPA/XPA-downstream.fasta \
+    --frameshift -1 \
+    --prepend XPA \
+    --wrap > XPA/XPA-frameshift-RTs.fasta
+
+./Xmera.sif Xmera/src/buildFrameShiftRTs.py \
+    --first XPA/XPA-shuffled.fasta \
+    --second XPA/XPA-cds.fasta \
+    --length 190 \
+    --upstream XPA/XPA-upstream.fasta \
+    --downstream XPA/XPA-downstream.fasta \
+    --frameshift -2 \
+    --prepend XPA \
+    --wrap >> XPA/XPA-frameshift-RTs.fasta
+
+./Xmera.sif Xmera/src/buildFrameShiftRTs.py \
+    --first XPA/XPA-shuffled.fasta \
+    --second XPA/XPA-cds.fasta \
+    --length 190 \
+    --upstream XPA/XPA-upstream.fasta \
+    --downstream XPA/XPA-downstream.fasta \
+    --frameshift -3 \
+    --prepend XPA \
+    --wrap >> XPA/XPA-frameshift-RTs.fasta
+```
+
+Below code block generates frame shifts in ERCC1, saving as [`ERCC1-frameshift-RTs.fasta`](ERCC1/ERCC1-frameshift-RTs.fasta):
+```bash
+./Xmera.sif Xmera/src/buildFrameShiftRTs.py \
+    --first ERCC1/ERCC1-shuffled.fasta \
+    --second ERCC1/ERCC1-cds.fasta \
+    --length 190 \
+    --upstream ERCC1/ERCC1-upstream.fasta \
+    --downstream ERCC1/ERCC1-downstream.fasta \
+    --frameshift -1 \
+    --prepend ERCC1 \
+    --wrap > ERCC1/ERCC1-frameshift-RTs.fasta
+
+./Xmera.sif Xmera/src/buildFrameShiftRTs.py \
+    --first ERCC1/ERCC1-shuffled.fasta \
+    --second ERCC1/ERCC1-cds.fasta \
+    --length 190 \
+    --upstream ERCC1/ERCC1-upstream.fasta \
+    --downstream ERCC1/ERCC1-downstream.fasta \
+    --frameshift -2 \
+    --prepend ERCC1 \
+    --wrap >> ERCC1/ERCC1-frameshift-RTs.fasta
+
+./Xmera.sif Xmera/src/buildFrameShiftRTs.py \
+    --first ERCC1/ERCC1-shuffled.fasta \
+    --second ERCC1/ERCC1-cds.fasta \
+    --length 190 \
+    --upstream ERCC1/ERCC1-upstream.fasta \
+    --downstream ERCC1/ERCC1-downstream.fasta \
+    --frameshift -3 \
+    --prepend ERCC1 \
+    --wrap >> ERCC1/ERCC1-frameshift-RTs.fasta
+```
